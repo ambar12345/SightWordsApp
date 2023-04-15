@@ -1,1 +1,1 @@
-# SightWordsApp
+# SightWords
