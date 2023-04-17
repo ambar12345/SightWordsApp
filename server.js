@@ -10,6 +10,7 @@ const MongoClient = require('mongodb').MongoClient
 require('dotenv').config() //will use the .env file that you have
 
 const app = express()
+const cors = require('cors')
 
 let db, dbName = 'sight-words'
 
@@ -18,7 +19,7 @@ let dbConnectionString = 'mongodb+srv://ambaravalos1217:pGWlDabRzSy1tOh2@cluster
 
 MongoClient.connect(dbConnectionString, { useUnifiedTopology: true })
  .then(client => {
-   console.log('connected to ${dbName} database')
+   console.log(`connected to ${dbName} database`)
    db = client.db(dbName)
 })
 

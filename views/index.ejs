@@ -7,10 +7,39 @@
     <title>My Sight Words</title>
 </head>
 <body>
-    <h1>TEST</h1>
-<h2>It Works!</h2>
+    <h1>My Sight Words</h1>
 
+<section id="success">
+    <!-- WORD ADDED! -->
+</section>
 
+<!-- form on the left side of the screen -->
+<form action="/words" method = "POST">
+    <input type="text" placeholder="Insert word here" name="word">
+    
+    <!-- input dropdown :  -->
+    <label for="level">Choose the Level:</label>
+    <select id="level" name="level">
+        <option value="pre-k">Pre-K</option>
+        <option value="kinder">Kindergarten</option>
+        <option value="first">First Grade</option>
+        <option value="second">Second Grade</option>
+        <option value="third">Third Grade</option>
+        <option value="noun">Noun</option>
+    </select>
+    
+    <button type="submit">Submit</button>
+</form>
+
+<section id="wordList">
+    <!-- list of words here -->
+    <ul>
+        <li>WORD A : LEVEL</li>
+        <li>WORD B : LEVEL</li>
+    </ul>
+    
+    <!--https://jamboard.google.com/d/1ll_mogkUOGfSQPDGcd6pDpjv3Hplp2u4BUvPHpNFsp0/viewer?f=0-->
+</section>
 
 </body>
 </html>
