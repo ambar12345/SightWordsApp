@@ -21,6 +21,7 @@ MongoClient.connect(dbConnectionString, { useUnifiedTopology: true })
  .then(client => {
    console.log(`connected to ${dbName} database`)
    db = client.db(dbName)
+   //const wordsCollections = db.collection('words')
 })
 
 //APP BELOW
@@ -37,11 +38,27 @@ app.listen(HTTP_PORT, function(){
     console.log('app is running')
 })
 
-app.get("/", function(request, response){
+app.get("/", async function(request, response){
     //response.sendFile(__dirname + '/index.html')
-    db.collection('sight-words').find().toArray()
-    .then(data => {
-        response.render('index.ejs', { info: data })
+    //db.collection('words').find().toArray()
+
+    const wordItems = await db.collection('words').find().toArray()
+    response.render('index.ejs', { items: wordItems })
+    
+    // db.collection('words').find().toArray()
+    // .then(data => {
+    //     //console.log(data)
+    //     response.render('index.ejs', { items: wordItems })
+    // })
+    // .catch(error => console.error(error))
+
+})
+
+app.post('/addWords', (request, response) => {
+    db.collection('words').insertOne({word: request.body.word, level: request.body.level}) //TODO: check how to retrieve value of a dropdown
+    .then(result => {
+        console.log('Word Added')
+        response.redirect('/')
     })
     .catch(error => console.error(error))
 })

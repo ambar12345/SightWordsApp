@@ -14,7 +14,7 @@
 </section>
 
 <!-- form on the left side of the screen -->
-<form action="/words" method = "POST">
+<form action="/addWords" method = "POST">
     <input type="text" placeholder="Insert word here" name="word">
     
     <!-- input dropdown :  -->
@@ -33,9 +33,15 @@
 
 <section id="wordList">
     <!-- list of words here -->
+    <h3>Words</h3>
     <ul>
-        <li>WORD A : LEVEL</li>
-        <li>WORD B : LEVEL</li>
+        <% for(let i = 0; i < items.length ; i++){ %>
+            <li>
+                <span><%= items[i].word %> --- </span> <span><%= items[i].level %></span>
+                
+            </li>
+        
+        <% } %>
     </ul>
     
     <!--https://jamboard.google.com/d/1ll_mogkUOGfSQPDGcd6pDpjv3Hplp2u4BUvPHpNFsp0/viewer?f=0-->
