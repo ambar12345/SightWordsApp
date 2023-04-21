@@ -7,7 +7,7 @@
 var HTTP_PORT = process.env.PORT || 8000;
 const express = require('express')
 const MongoClient = require('mongodb').MongoClient
-require('dotenv').config() //will use the .env file that you have
+//require('dotenv').config() //will use the .env file that you have
 
 const app = express()
 const cors = require('cors')
@@ -63,4 +63,13 @@ app.post('/addWords', (request, response) => {
     .catch(error => console.error(error))
 })
 
+app.delete('/deleteItem', (request, response) => {
+    db.collection('words').deleteOne({_id: request.body._id})
+    .then(result => {
+        console.log(result)
+        console.log('Word Deleted')
+        response.json('Word Deleted')
+    })
+    .catch(error => console.error(error))
 
+})

@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Sight Words</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>My Sight Words</h1>
 
 <section id="success">
     <!-- WORD ADDED! -->
+    
 </section>
 
 <!-- form on the left side of the screen -->
@@ -37,7 +40,10 @@
     <ul>
         <% for(let i = 0; i < items.length ; i++){ %>
             <li>
-                <span><%= items[i].word %> --- </span> <span><%= items[i].level %></span>
+                <span class="hidden"><%= items[i]._id %></span> 
+                <span><%= items[i].word %></span> 
+                <span>--- <%= items[i].level %></span> 
+                <span class='fa fa-trash'></span>
                 
             </li>
         
@@ -46,6 +52,7 @@
     
     <!--https://jamboard.google.com/d/1ll_mogkUOGfSQPDGcd6pDpjv3Hplp2u4BUvPHpNFsp0/viewer?f=0-->
 </section>
-
+<script src="js/main.js"></script>
 </body>
+
 </html>
