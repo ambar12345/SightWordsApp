@@ -1,3 +1,47 @@
 .hidden {
     display:none;
 }
+
+body {
+    text-align: center;
+}
+
+ul {
+    padding:0;
+}
+
+
+
+#userInput, #wordList {
+    border:1px solid black;
+    padding:50px;
+    width:400px;
+    margin: 0 auto;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/****WordList Section****/
+#wordListHeader {
+    display:flex;
+    justify-content: space-between;
+}
+
+li {
+    list-style-type: none;
+    display:flex;
+    justify-content: space-between;
+}
+
+
+/****Buttons****/
+
+#submit {
+    margin-top: 20px;
+}

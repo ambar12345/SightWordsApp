@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<section id="userInput">
     <h1>My Sight Words</h1>
 
 <section id="success">
@@ -18,33 +19,45 @@
 
 <!-- form on the left side of the screen -->
 <form action="/addWords" method = "POST">
-    <input type="text" placeholder="Insert word here" name="word">
-    
+    <input type="text" placeholder="Type word here" name="word">
+    <br>
     <!-- input dropdown :  -->
-    <label for="level">Choose the Level:</label>
+    <label for="level">Choose Grade Level:</label>
     <select id="level" name="level">
-        <option value="pre-k">Pre-K</option>
-        <option value="kinder">Kindergarten</option>
-        <option value="first">First Grade</option>
-        <option value="second">Second Grade</option>
-        <option value="third">Third Grade</option>
-        <option value="noun">Noun</option>
+        <option value="Pre-K">Pre-K</option>
+        <option value="K">Kindergarten</option>
+        <option value="First Gr.">First Grade</option>
+        <option value="Second Gr.">Second Grade</option>
+        <option value="Third Gr.">Third Grade</option>
+        <option value="Noun">Noun</option>
     </select>
     
-    <button type="submit">Submit</button>
+    <button id='submit' type="submit">Submit</button>
 </form>
+
+</section>
 
 <section id="wordList">
     <!-- list of words here -->
-    <h3>Words</h3>
+    
     <ul>
+        <div id="wordListHeader">
+            <h2>Word</h2>
+            <h2>Level</h2>
+            <h2>Modify</h2>
+            </div>
         <% for(let i = 0; i < items.length ; i++){ %>
             <li>
-                <span class="hidden"><%= items[i]._id %></span> 
+                <span class="hidden"><%= items[i]._id %></span>
+                <section>
                 <span><%= items[i].word %></span> 
-                <span>--- <%= items[i].level %></span> 
+                </section> 
+                <section>
+                <span><%= items[i].level %></span>
+                </section>
+                <section>
                 <span class='fa fa-trash'></span>
-                
+                </section>
             </li>
         
         <% } %>
